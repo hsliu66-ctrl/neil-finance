@@ -1,11 +1,89 @@
 {
-  "schema": 1,
-  "series": {},
-  "sources": {
-    "treasury": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml",
-    "ecb": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml"
-  },
   "notes": [
-    "等待首次執行官方資料擷取；目前尚無市場數值，不以樣本數值冒充正式行情。"
-  ]
+    "U.S. Treasury par yields: percent, official observation date; publication lag possible.",
+    "ECB EUR/USD reference; USD/JPY and USD/CNY are derived cross-rates, NOT spot closing prices.",
+    "No automatic USD/TWD Taipei close, USD/CNH or US equity prices."
+  ],
+  "schema": 1,
+  "series": {
+    "ECB_EURUSD": {
+      "date": "2026-10-09",
+      "source": "ECB",
+      "value": 1.1206
+    },
+    "ECB_USDCNY": {
+      "date": "2026-10-09",
+      "source": "ECB",
+      "value": 6.692129
+    },
+    "ECB_USDJPY": {
+      "date": "2026-10-09",
+      "source": "ECB",
+      "value": 158.254507
+    },
+    "UST_10Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 5.24
+    },
+    "UST_1M": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 4.13
+    },
+    "UST_1Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 4.47
+    },
+    "UST_20Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 5.65
+    },
+    "UST_2M": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 4.13
+    },
+    "UST_2Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 4.8
+    },
+    "UST_30Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 5.6
+    },
+    "UST_3M": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 4.25
+    },
+    "UST_3Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 4.89
+    },
+    "UST_5Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 5.02
+    },
+    "UST_6M": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 4.32
+    },
+    "UST_7Y": {
+      "date": "2026-10-09",
+      "source": "U.S. Treasury",
+      "value": 5.13
+    }
+  },
+  "sources": {
+    "ecb": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml",
+    "treasury": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml"
+  }
 }
