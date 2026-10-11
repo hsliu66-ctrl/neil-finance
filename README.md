@@ -1,11 +1,22 @@
 # Neil Financial Desk｜財經研究室
 
-這是 Neil Financial Desk 的 GitHub Pages 網站專案，收錄美股市場晨報、總經、美債、匯率、ETF 與財報研究。
+專業財經報告手機閱讀網站，包含美股晨報、全球總經、美債殖利率、匯率週報、ETF 投資研究與財報洞察。
 
-## 網站上線方式
+## 目前狀態
 
-1. 在此 Repository 點選 **Add file → Upload files**，上傳網站 ZIP 解壓縮後的所有檔案（包含 `index.html`、`styles.css`、`app.js`、`reports.js` 等）。
-2. 在 **Settings → Pages** 的 **Build and deployment** 選擇 **Deploy from a branch** → `main` → `/(root)`，再點 **Save**。
-3. 預計網址：<https://hsliu66-ctrl.github.io/neil-finance/>
+- ✅ 網站首頁及全部必要檔案已上傳至 main 分支（由 ChatGPT 協助上傳）。
+- ✅ 具備文章搜尋、分類篩選、示範報告、圖表與內容編輯器。
+- ⏳ 尚需在 GitHub Pages 設定中啟用公開網站。
 
-初始文章為示範樣稿，正式發布前應核實內容、數據、來源及授權。請勿將客戶個資或機密資料放入公開 Repository。
+## 第一次發布
+
+1. 開啟 [GitHub Pages 設定](https://github.com/hsliu66-ctrl/neil-finance/settings/pages)
+2. 在 **Build and deployment** 的 **Source** 選擇 **Deploy from a branch**。
+3. Branch 設定為 **main**，資料夾選擇 **/(root)**，再按 **Save**。
+4. 待 GitHub 完成部署後，開啟 <https://hsliu66-ctrl.github.io/neil-finance/>。
+
+## 日後更新
+
+在 `reports.js` 更新文章資料後 Commit，網站會重新部署。或打開 `editor.html`，填寫內容並下載 `reports.js`，再將它更新到 GitHub。
+
+目前七篇示範文章皆標註「示範樣稿」，不應視為即時行情。正式公開分享前，請逐項核對市場數據、圖片與資料引用授權。切勿公開銀行客戶個資或內部機密。
