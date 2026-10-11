@@ -1,58 +1,23 @@
-# Neil Financial Desk｜財經研究室
-
-一個可直接部署到 GitHub Pages 的免費靜態財經報告網站。主色採暖白、深海軍藍、墨綠、柔金色；支援 iPad/iPhone 與桌面；無需外部資料庫、伺服器、API 金鑰或付費框架。
-
-## 網站功能
-
-- 六大分類：美股晨報、全球總經、美債殖利率、匯率週報、ETF 研究、財報洞察。
-- 手機響應式排版、搜尋、類別篩選、文章詳情、走勢 SVG 圖、文章來源、複製文章網址、列印及 PDF。
-- `editor.html` 提供在瀏覽器內編輯／新增文章並下載 `reports.js` 的功能。**不會自動發布**。
-- 初始七篇文章全部標示「示範樣稿」，不代表即時市場行情；其中 TWD 的三個示範點取自之前提供的逐日資料，尚未構成完整週報。
-- 沒有訪客追蹤、個資蒐集或後端服務。除 Google Fonts（載入字型）外不需要外部資源；Google Fonts 無法連線時會自動使用系統中文字型。
-
-## iPad / Safari：首次公開發布步驟
-
-1. 下載 `neil-financial-desk.zip`，在 iPad 的「檔案」App 點擊 ZIP 解壓縮。
-2. 用 Safari 登入 https://github.com/new 。新建公開 (Public) Repository，名稱建議填 `neil-finance`。選擇「Add a README file」可保持開啟，沒有影響。
-3. 進入這個 Repository，選 **Add file → Upload files**，上傳解壓縮後的網站檔案：`index.html`、`article.html`、`editor.html`、`404.html`、`styles.css`、`app.js`、`editor.js`、`reports.js`、`favicon.svg`、`README.md`、`.nojekyll`。如已在 GitHub 初始化 README，可略過上傳本地 README，或選擇覆蓋原本 README。
-4. 點 **Commit changes** 儲存檔案。
-5. 進入 **Settings → Pages → Build and deployment → Source: Deploy from a branch**，選 **Branch: main**、**Folder: /(root)**，再按 **Save**。
-6. 等 GitHub 完成部署後，從 Settings → Pages 點選 **Visit site**。
-
-對帳號 `hsliu66-ctrl` 和專案 `neil-finance`，**預計**網站網址是：
-
-`https://hsliu66-ctrl.github.io/neil-finance/`
-
-**此網址只有在成功建立 Repository、上傳檔案並啟用 Pages 後才會真的生效；ZIP 本身不等於發布完成。**
-
-## 以 iPad 新增每日報告
-
-1. 打開你的公開網站的「＋ 編輯報告」，也就是 `/editor.html`。
-2. 輸入標題、日期、內容、關鍵觀察、來源，以及是否已核實數據。
-3. 點「下載更新後的 reports.js」，或「複製檔案內容」。
-4. 在 GitHub 專案打開 `reports.js`，可以進入 **Edit**（鉛筆）→ 全選貼上新文字 → **Commit changes**；或將新檔案上傳取代同名檔案。
-5. GitHub Pages 部署成功後重新整理公開網站，即能看到新增文章。
-
-編輯器是在瀏覽器裡生成一整個 `reports.js`，而非送至 GitHub。**多裝置同步時，請以 GitHub 最新的 `reports.js` 為起點，避免覆蓋其他裝置的新報告。**
-
-## 最重要的檔案
-
-| 檔案 | 用途 |
-|---|---|
-| `index.html` | 首頁、導覽及研究報告清單 |
-| `article.html` | 文章頁面 |
-| `reports.js` | 全部研究報告內容及圖表數據 |
-| `app.js` | 篩選、搜尋、文章顯示及圖表功能 |
-| `styles.css` | 全站視覺設計與響應式版型 |
-| `editor.html`, `editor.js` | 免寫程式內容編輯器 |
-| `favicon.svg` | 文字品牌 N. 圖示；如要換成原始 Neil Logo，可替換並修改 HTML |
-
-## 注意事項
-
-- GitHub Free 使用 GitHub Pages 時，一般需使用公開 Repository；發布的網站可被任何知道網址的人檢視。
-- 請勿放入銀行客戶資料、個人機密、API key 或未獲授權的付費研究全文。
-- 先核實市場數據、來源網址及發布授權，才將文章狀態改成「正式報告」。
-- 初始內容為展示樣稿，不應當作當日買賣依據。
-- 此版本不是 CMS 後台，無登入機制、也不提供多人同步編輯；若需要自動抓行情／定時部署，日後可以加 GitHub Actions。
-
-官方教學：https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#f7f5ee"><title>新增研究報告｜Neil Financial Desk</title><link rel="icon" href="favicon.svg?v=2" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script defer src="reports.js"></script><script defer src="editor.js"></script></head><body>
+  <div class="topline"><div class="container topbar"><span><span class="live-dot"></span> PERSONAL MARKET RESEARCH &amp; INTELLIGENCE</span><span class="topbar-date">CONTENT WORKSPACE</span></div></div>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Neil 財經研究室首頁"><img class="brand-logo" src="neil-logo.webp" width="360" height="113" alt="Neil 整理 Logo"><small class="brand-label">NEIL FINANCIAL DESK · 財經研究室</small></a><nav class="desktop-nav"><a href="index.html">網站首頁</a><a href="index.html#reports">研究報告</a></nav><a class="header-action" href="index.html">↩ 回首頁</a></div></header>
+  <main class="container editor-shell"><div class="editor-heading"><div><div class="kicker">NEIL / CONTENT STUDIO</div><h1>研究報告編輯器<span class="gold-punc">.</span></h1><p>無須寫程式：輸入文章、下載更新檔，再上傳至 GitHub 即可發布。</p></div></div>
+    <div class="editor-note"><strong>重要：</strong>這是完全在瀏覽器內運作的前端編輯工具，按「產生檔案」不會自動發布，也不會把內容傳到伺服器。產生的 <code>reports.js</code> 需由你登入 GitHub 後上傳並取代同名檔案；請不要輸入任何私密客戶資料。</div>
+    <div class="editor-grid"><div class="editor-panel"><h2>文章內容</h2>
+      <label class="field"><span>編輯模式</span><select id="edit-existing"><option value="">＋ 新增文章</option></select><div class="field-help">選擇原有文章可編輯；選「新增文章」可建立全新報告。</div></label>
+      <div class="form-row"><label class="field"><span>報告日期</span><input type="date" id="f-date" required></label><label class="field"><span>報告類別</span><select id="f-category"><option value="market">美股投資晨報</option><option value="macro">全球總經研究</option><option value="rates">美債殖利率</option><option value="fx">匯率週報</option><option value="etf">ETF 投資研究</option><option value="earnings">財報洞察</option></select></label></div>
+      <label class="field"><span>文章標題 *</span><input id="f-title" type="text" placeholder="例如：USD/TWD｜新台幣匯率週報" maxlength="140" required></label>
+      <label class="field"><span>副標題</span><input id="f-subtitle" type="text" placeholder="2026/10/05–10/09｜台北外匯市場"></label>
+      <label class="field"><span>首頁摘要 *</span><textarea id="f-summary" rows="3" placeholder="以 1–2 句話說明最重要的市場訊息" required></textarea></label>
+      <label class="field"><span>Neil 市場觀察（醒目重點）</span><textarea id="f-focus" rows="3" placeholder="一句濃縮結論；請分清已核實事實與個人判斷。"></textarea></label>
+      <label class="field"><span>文章正文 *</span><textarea id="f-body" class="big" placeholder="第一段市場回顧……&#10;&#10;第二段重點分析……&#10;&#10;第三段下週觀察……" required></textarea><div class="field-help">以空白行分段。若要放入多段，按兩次換行即可。</div></label>
+      <label class="field"><span>重點條列</span><textarea id="f-bullets" rows="5" placeholder="觀察點一&#10;觀察點二&#10;觀察點三"></textarea><div class="field-help">每行一個重點，會出現在「關鍵觀察」區塊。</div></label>
+      <label class="field"><span>主題標籤</span><input id="f-tags" type="text" placeholder="例如：VT, GLD, USD/TWD"><div class="field-help">以半形逗號分開。</div></label>
+      <label class="field"><span>資料來源</span><input id="f-source" type="text" placeholder="例如：U.S. Treasury / 中央社 / 公司財報"></label>
+      <label class="field"><span>來源連結（選填）</span><input id="f-url" type="url" placeholder="https://..."></label>
+      <label class="field"><span>文章狀態</span><select id="f-sample"><option value="true">示範樣稿（尚待核實）</option><option value="false">正式報告（已確認資料）</option></select></label>
+      <button id="download-btn" type="button" class="editor-action">下載更新後的 reports.js ↓</button><button id="copy-btn" type="button" class="editor-action outline">複製檔案內容</button><div class="editor-feedback" id="editor-feedback" role="status" aria-live="polite"></div>
+    </div><aside class="editor-side"><h2>iPad 發布步驟</h2><ol class="editor-list"><li>填好文章，點「下載更新後的 reports.js」。</li><li>打開自己的 GitHub 網站專案。</li><li>找到 <code>reports.js</code>，上傳並取代同名檔案，或貼上複製的內容後 Commit。</li><li>回到公開網址重新整理，就能看到新報告。</li></ol><p><a class="text-link" href="index.html#reports">回到研究檔案 →</a></p><hr style="border:0;border-top:1px solid #e0e4dc;margin:25px 0"><small>保留現有文章：匯出的檔案將包含原本的報告及這次新增／修改的內容，不會只剩一篇。若網站已有其他人更新文章，請先重新載入最新版再編輯，以免覆蓋別人的變更。</small><hr style="border:0;border-top:1px solid #e0e4dc;margin:25px 0"><small>此頁雖然公開可查看，但無法直接修改 GitHub 儲存庫；只有具備 GitHub 寫入權限的人，才能將下載的檔案上傳發布。</small></aside></div>
+  </main><footer class="footer"><div class="container"><div class="footer-disclaimer">🚫 僅供個人學習，請勿任意轉傳他人圖片或群組散布。<br>僅供資訊參考，非投資建議。任何發布內容請核實數據及資料授權。</div><div class="footer-lower"><span>© 2026 NEIL FINANCIAL DESK</span><span>SECURE LOCAL-ONLY EDITING</span></div></div></footer>
+</body></html>
