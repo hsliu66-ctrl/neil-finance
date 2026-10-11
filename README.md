@@ -41,3 +41,13 @@
 - 週一至週六 **台北時間上午 06:30**；對應 UTC 前一日 **22:30**，GitHub Actions cron 為 `30 22 * * 0-5`（UTC 週日至週五）。
 - 每週歸檔維持 **週一台北時間 09:30**（UTC 01:30）。
 - GitHub Actions 可能延遲執行，且資料依官方觀測日期與發布時點更新，不代表每日 06:30 已取得該日收盤數字。
+
+## Research Lab：五大開源工具
+- 首頁新增 [研究工具中心](https://hsliu66-ctrl.github.io/neil-finance/research-lab.html)。
+- Plotly：網站互動公債圖表 `research-plotly.html`、Python 圖表腳本 `research/plotly_chart.py`，研究環境安裝依 `research/requirements.txt`。
+- yfinance：`research/private_yfinance.py`（只供個人研究，不自動對外散布）。
+- Streamlit：`research/streamlit_app.py` 已準備，但必須在 Streamlit Community Cloud 另外授權及部署。
+- Quarto：`research/make_quarto.py` 與 GitHub Actions 提供研究簡報 HTML artifact；不覆蓋主站。
+- QuantConnect LEAN：`research/lean/NeilETFStrategy/main.py` 為季度 ETF 配置策略範例；回測前須具 Docker、資料及有效帳號。
+- GitHub Actions 檢查 workflow：`.github/workflows/neil-research-tools.yml`。驗證安裝成功不等於 Streamlit 公開託管或 LEAN 完成回測。
+- 原本官方市場數據排程繼續週一至週六 **台北時間 06:30**。

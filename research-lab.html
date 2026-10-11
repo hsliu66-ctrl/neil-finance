@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neil Research Lab｜五大研究工具</title><meta name="theme-color" content="#f7f5ee">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+<style>
+.tools-wrap{padding:65px 0 105px}.tools-eyebrow{font-size:11px;color:#285b4d;font-weight:800;letter-spacing:2px}
+.tools-wrap h1{font-size:clamp(36px,5vw,60px);line-height:1.25;margin:12px 0 18px}
+.tools-lead{color:#50616b;font-size:19px;line-height:1.85;max-width:800px}
+.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}
+.tool-card{border:1px solid #d9dcd5;background:#fffefa;padding:27px;display:flex;flex-direction:column;gap:13px}
+.tool-card h2{font-size:25px;margin:0}.tool-card p{color:#50616b;line-height:1.8;font-size:15px;margin:0;flex:1}
+.tool-card .tag{font-size:11px;font-weight:800;letter-spacing:1px;color:#285b4d}
+.tool-card .status{font-size:12px;color:#6d7d80}
+.tool-card a{font-size:14px;color:#285b4d;text-decoration:underline;font-weight:700}
+.tool-card a.primary{background:#142b36;text-decoration:none;color:white;padding:12px 14px;text-align:center}
+.tools-note{margin:30px 0;background:#eef0e8;border-left:4px solid #285b4d;padding:21px;color:#3e5761;font-size:14px;line-height:1.85}
+.tools-note strong{color:#142b36}
+@media(max-width:760px){.tools-wrap{padding:35px 0 70px}.tools-grid{grid-template-columns:1fr}.tool-card{padding:20px}.tools-lead{font-size:18px}}
+</style></head><body>
+<div class="topline"><div class="container topbar">NEIL FINANCIAL DESK / OPEN-SOURCE RESEARCH TOOLS</div></div>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><img class="brand-logo" src="neil-logo.webp" alt="Neil 整理 Logo"><small class="brand-label">NEIL FINANCIAL DESK · 財經研究室</small></a>
+<nav class="desktop-nav"><a href="market.html">官方市場數據</a><a href="archive.html">每週歸檔</a><a href="publish.html">發布報告</a></nav><a class="header-action" href="index.html">↩ 返回首頁</a></div></header>
+<main class="container tools-wrap">
+<div class="tools-eyebrow">NEIL / FIVE RESEARCH ENGINES</div>
+<h1>研究工具中心<span style="color:#b48a48">.</span></h1>
+<p class="tools-lead">從互動圖表、個人 ETF 行情研究，到投資儀表板、研究報告輸出與回測專案。這五個工具已納入 GitHub 專案，但各自需要的執行環境並不相同。</p>
+<div class="tools-grid">
+<article class="tool-card">
+<div class="tag">01 / VISUAL ANALYTICS</div><h2>Plotly</h2><p>用官方美債歷史資料產生 1M–30Y 互動殖利率曲線；Python 產生器已加入研究工具，網站亦設有可直接操作的互動圖表。</p>
+<div class="status">網站互動圖表可閱讀 · Plotly.py 由 GitHub Actions 安裝測試</div>
+<a class="primary" href="research-plotly.html">開啟互動殖利率圖表 ↗</a>
+<a href="https://github.com/hsliu66-ctrl/neil-finance/blob/main/research/plotly_chart.py">檢視 Plotly Python 程式</a></article>
+<article class="tool-card">
+<div class="tag">02 / PERSONAL MARKET RESEARCH</div><h2>yfinance</h2><p>私人研究 VT、VOO、GLD、XLV 等 ETF 歷史行情。程式僅在有 Python 的工作環境執行，預設不把 Yahoo 資料自動發布到公開網站。</p>
+<div class="status">私人研究腳本已建立 · 不公開 Yahoo 歷史資料</div>
+<a class="primary" href="https://github.com/hsliu66-ctrl/neil-finance/blob/main/research/private_yfinance.py">查看私人 ETF 行情工具 ↗</a>
+<a href="https://github.com/ranaroussi/yfinance">yfinance 官方專案</a></article>
+<article class="tool-card">
+<div class="tag">03 / INTERACTIVE INVESTING</div><h2>Streamlit</h2><p>已準備可部署的投資研究儀表板：選擇官方觀測指標、篩選歷史區間、查看互動圖表並下載 CSV。需要在 Streamlit Community Cloud 額外完成登入部署。</p>
+<div class="status">應用程式碼與 requirements 已建立 · 尚待外部託管</div>
+<a class="primary" href="https://share.streamlit.io/">前往 Streamlit 部署 ↗</a>
+<a href="https://github.com/hsliu66-ctrl/neil-finance/blob/main/research/streamlit_app.py">設定檔：research/streamlit_app.py</a></article>
+<article class="tool-card">
+<div class="tag">04 / FINANCIAL EDITORIAL</div><h2>Quarto</h2><p>根據已保存的 Treasury／ECB 資料，自動產生 Quarto 市場簡報 HTML。可從 GitHub Actions 取得報告附件，與主站發布互不干擾。</p>
+<div class="status">報告產生器與 CI 已設定 · 測試報告作為 Artifact</div>
+<a class="primary" href="https://github.com/hsliu66-ctrl/neil-finance/actions/workflows/neil-research-tools.yml">Quarto 產出與下載 ↗</a>
+<a href="https://github.com/hsliu66-ctrl/neil-finance/blob/main/research/make_quarto.py">查看 Quarto 報告產生器</a></article>
+<article class="tool-card">
+<div class="tag">05 / PORTFOLIO STRATEGIES</div><h2>QuantConnect LEAN</h2><p>建立季度調整的 VT／AGG／GLD 策略範例，可作為學習配置與回測的起點。真正執行需要 Docker、資料來源及 QuantConnect 帳號／訂閱權限。</p>
+<div class="status">策略程式碼已建立 · 未執行雲端或本機回測</div>
+<a class="primary" href="https://github.com/hsliu66-ctrl/neil-finance/blob/main/research/lean/NeilETFStrategy/main.py">查看 LEAN 策略程式 ↗</a>
+<a href="https://www.quantconnect.com/docs/v2/lean-cli/installation/installing-lean-cli">LEAN CLI 官方要求</a></article>
+<article class="tool-card">
+<div class="tag">GITHUB / OPERATIONS</div><h2>安裝及驗證紀錄</h2><p>GitHub Actions 驗證 Plotly、yfinance、Streamlit 的 Python 環境，Quarto 產製報告；LEAN CLI 可在手動執行選項中測試，回測則需另行設定。</p>
+<div class="status">開源工具原始碼集中管理 · 不會更改每日官方行情更新排程</div>
+<a class="primary" href="https://github.com/hsliu66-ctrl/neil-finance/actions/workflows/neil-research-tools.yml">查看工具安裝測試 ↗</a>
+<a href="https://github.com/hsliu66-ctrl/neil-finance/blob/main/research/README.md">閱讀完整設定指南</a></article>
+</div>
+<div class="tools-note"><strong>資料和授權提醒：</strong>官方 Treasury／ECB 資料可用於目前研究展示；yfinance 不會自動同步 Yahoo 價格到公開 Pages。請勿將銀行客戶資料、內部剪報或未獲授權的付費報告上傳至公開 Repository。</div>
+</main>
+<footer class="footer"><div class="container"><div class="footer-disclaimer">📝 Neil 整理｜僅供資訊參考，非投資建議。🚫 僅供個人學習，請勿任意轉傳他人圖片或群組散布。</div></div></footer>
+</body></html>

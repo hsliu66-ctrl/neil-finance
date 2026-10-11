@@ -1,0 +1,5 @@
+# Python research tools, not installed on GitHub Pages itself
+plotly>=6.0,<7
+pandas>=2.2,<3
+streamlit>=1.42,<2
+yfinance>=0.2.50,<1

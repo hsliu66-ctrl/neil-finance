@@ -53,7 +53,7 @@ jobs:
       - name: Assemble static pages
         run: |
           mkdir -p _site
-          cp index.html article.html editor.html publish.html market.html archive.html 404.html _site/
+          cp index.html article.html editor.html publish.html market.html archive.html research-lab.html research-plotly.html 404.html _site/
           cp app.js editor.js reports.js market.js archive.js styles.css favicon.svg neil-logo.webp .nojekyll _site/
           cp -R data _site/data
           if [ -d assets ]; then cp -R assets _site/assets; fi

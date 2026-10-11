@@ -1,0 +1,68 @@
+name: Neil Research Tools - Validate and Quarto
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/**'
+      - '.github/workflows/neil-research-tools.yml'
+  workflow_dispatch:
+    inputs:
+      check_lean:
+        description: 'Also install and check QuantConnect LEAN CLI (no paid backtest)'
+        required: false
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  research-python:
+    name: Plotly / yfinance / Streamlit Python environment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install research packages
+        run: python -m pip install -r research/requirements.txt
+      - name: Verify installed packages and syntax
+        run: |
+          python -m compileall -q research
+          python -c 'import plotly, yfinance, streamlit, pandas; print("Plotly / yfinance / Streamlit ready")'
+      - name: Build official data Plotly chart
+        run: python research/plotly_chart.py --output research/plotly-test.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neil-plotly-interactive-sample
+          path: research/plotly-test.html
+          if-no-files-found: error
+  quarto-report:
+    name: Quarto HTML research memo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build research memo source from official data
+        run: python research/make_quarto.py --output research/generated_brief.qmd
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Render Quarto HTML
+        run: quarto render research/generated_brief.qmd --to html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neil-quarto-research-report
+          path: research/generated_brief.html
+          if-no-files-found: error
+  lean-cli-check:
+    name: Optional LEAN CLI installation check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install LEAN CLI
+        run: python -m pip install -r research/requirements-lean.txt
+      - name: Check LEAN CLI only; no cloud paid features
+        run: lean --version
