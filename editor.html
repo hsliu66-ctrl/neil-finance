@@ -1,0 +1,58 @@
+# Neil Financial Desk｜財經研究室
+
+一個可直接部署到 GitHub Pages 的免費靜態財經報告網站。主色採暖白、深海軍藍、墨綠、柔金色；支援 iPad/iPhone 與桌面；無需外部資料庫、伺服器、API 金鑰或付費框架。
+
+## 網站功能
+
+- 六大分類：美股晨報、全球總經、美債殖利率、匯率週報、ETF 研究、財報洞察。
+- 手機響應式排版、搜尋、類別篩選、文章詳情、走勢 SVG 圖、文章來源、複製文章網址、列印及 PDF。
+- `editor.html` 提供在瀏覽器內編輯／新增文章並下載 `reports.js` 的功能。**不會自動發布**。
+- 初始七篇文章全部標示「示範樣稿」，不代表即時市場行情；其中 TWD 的三個示範點取自之前提供的逐日資料，尚未構成完整週報。
+- 沒有訪客追蹤、個資蒐集或後端服務。除 Google Fonts（載入字型）外不需要外部資源；Google Fonts 無法連線時會自動使用系統中文字型。
+
+## iPad / Safari：首次公開發布步驟
+
+1. 下載 `neil-financial-desk.zip`，在 iPad 的「檔案」App 點擊 ZIP 解壓縮。
+2. 用 Safari 登入 https://github.com/new 。新建公開 (Public) Repository，名稱建議填 `neil-finance`。選擇「Add a README file」可保持開啟，沒有影響。
+3. 進入這個 Repository，選 **Add file → Upload files**，上傳解壓縮後的網站檔案：`index.html`、`article.html`、`editor.html`、`404.html`、`styles.css`、`app.js`、`editor.js`、`reports.js`、`favicon.svg`、`README.md`、`.nojekyll`。如已在 GitHub 初始化 README，可略過上傳本地 README，或選擇覆蓋原本 README。
+4. 點 **Commit changes** 儲存檔案。
+5. 進入 **Settings → Pages → Build and deployment → Source: Deploy from a branch**，選 **Branch: main**、**Folder: /(root)**，再按 **Save**。
+6. 等 GitHub 完成部署後，從 Settings → Pages 點選 **Visit site**。
+
+對帳號 `hsliu66-ctrl` 和專案 `neil-finance`，**預計**網站網址是：
+
+`https://hsliu66-ctrl.github.io/neil-finance/`
+
+**此網址只有在成功建立 Repository、上傳檔案並啟用 Pages 後才會真的生效；ZIP 本身不等於發布完成。**
+
+## 以 iPad 新增每日報告
+
+1. 打開你的公開網站的「＋ 編輯報告」，也就是 `/editor.html`。
+2. 輸入標題、日期、內容、關鍵觀察、來源，以及是否已核實數據。
+3. 點「下載更新後的 reports.js」，或「複製檔案內容」。
+4. 在 GitHub 專案打開 `reports.js`，可以進入 **Edit**（鉛筆）→ 全選貼上新文字 → **Commit changes**；或將新檔案上傳取代同名檔案。
+5. GitHub Pages 部署成功後重新整理公開網站，即能看到新增文章。
+
+編輯器是在瀏覽器裡生成一整個 `reports.js`，而非送至 GitHub。**多裝置同步時，請以 GitHub 最新的 `reports.js` 為起點，避免覆蓋其他裝置的新報告。**
+
+## 最重要的檔案
+
+| 檔案 | 用途 |
+|---|---|
+| `index.html` | 首頁、導覽及研究報告清單 |
+| `article.html` | 文章頁面 |
+| `reports.js` | 全部研究報告內容及圖表數據 |
+| `app.js` | 篩選、搜尋、文章顯示及圖表功能 |
+| `styles.css` | 全站視覺設計與響應式版型 |
+| `editor.html`, `editor.js` | 免寫程式內容編輯器 |
+| `favicon.svg` | 文字品牌 N. 圖示；如要換成原始 Neil Logo，可替換並修改 HTML |
+
+## 注意事項
+
+- GitHub Free 使用 GitHub Pages 時，一般需使用公開 Repository；發布的網站可被任何知道網址的人檢視。
+- 請勿放入銀行客戶資料、個人機密、API key 或未獲授權的付費研究全文。
+- 先核實市場數據、來源網址及發布授權，才將文章狀態改成「正式報告」。
+- 初始內容為展示樣稿，不應當作當日買賣依據。
+- 此版本不是 CMS 後台，無登入機制、也不提供多人同步編輯；若需要自動抓行情／定時部署，日後可以加 GitHub Actions。
+
+官方教學：https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
