@@ -51,7 +51,7 @@
 
 ## V2：每日數據與每週歸檔
 - market.html 讀取 \`data/latest.json\`、\`data/history.json\`，顯示觀測日期、歷史曲線；archive.html 讀取 \`data/weekly-index.json\` 與 \`data/weekly/YYYY-Www.json\`。
-- GitHub Action \`.github/workflows/neil-market-pages.yml\` 用 UTC 排程：週一至週五 00:15（台北 08:15）更新資料；每週一 01:30（台北 09:30）歸檔前一個完整 ISO 週。GitHub 排程可能延遲/略過，不能保證準點。
+- GitHub Action \`.github/workflows/neil-market-pages.yml\` 用 UTC 排程：UTC 週日至週五 22:30（台北次日週一至週六 06:30）更新資料；每週一 01:30（台北 09:30）歸檔前一個完整 ISO 週。GitHub 排程可能延遲/略過，不能保證準點。
 - \`scripts/update_market.py\` 從美國財政部取得 12 期公債殖利率，從 ECB 取得外匯參考數據並計算 USD/JPY、USD/CNY 交叉參考。這不等於收盤 USD/CNY、USD/TWD 或 USD/CNH，更不包含個股、ETF 即時報價；歷史資料缺漏不以猜測補齊。
 - 2026/10 起首次成功執行才累積資料；官方可能延遲發布，遇到資料失敗會保留既有歷史，不虛構最新日期。
 - 如 Pages 仍採「Deploy from a branch」，請到 Settings > Pages > Source 選擇「GitHub Actions」，因為 \`GITHUB_TOKEN\` 的自動 commit 不會觸發 branch-based Pages 的再次建置。一次設定後所有更新可直接經 workflow deploy-pages 上線。

@@ -36,3 +36,8 @@
 - 正式文章可含 \`images:[{src,alt,caption}]\`；圖卡應上傳至 \`assets/reports/\`，不可引用未經授權的資料與圖片。
 - **必要的一次性設定**：GitHub Settings → Pages → Source 改為 **GitHub Actions**，才能確保 Actions 排程推送的資料會自動發布。請參考 [完整 SOP](PUBLISHING.md)。
 - 資料非即時行情；Treasury 官方美債殖利率與 ECB 參考匯率有觀測日、發布時差與節假日缺值。
+
+## 市場資料更新時間（2026-10-11 調整）
+- 週一至週六 **台北時間上午 06:30**；對應 UTC 前一日 **22:30**，GitHub Actions cron 為 `30 22 * * 0-5`（UTC 週日至週五）。
+- 每週歸檔維持 **週一台北時間 09:30**（UTC 01:30）。
+- GitHub Actions 可能延遲執行，且資料依官方觀測日期與發布時點更新，不代表每日 06:30 已取得該日收盤數字。
