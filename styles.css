@@ -31,3 +31,20 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
 @media(max-width:740px){.header-inner{height:auto;min-height:87px;padding-block:7px;gap:9px}.brand-logo{width:192px}.brand-label{font-size:8px;letter-spacing:.3px;padding-left:2px}.header-action{margin-left:auto;flex-shrink:0}.neil-footer-mark{align-items:flex-start;flex-direction:column;gap:8px}.neil-footer-mark .footer-logo{width:190px}}
 @media(max-width:370px){.brand-logo{width:158px}.brand-label{font-size:7px;letter-spacing:0}.header-action{padding:8px 6px}}
 @media print{.article-print-brand{display:flex!important;flex-direction:column;align-items:flex-start;gap:7px;padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid #c9cec7;break-inside:avoid}.article-print-brand img{width:215px;height:auto;display:block}.article-print-brand small{font-size:9px;font-weight:700;letter-spacing:1.2px;color:#172b38}.article-print-disclaimer{display:block!important;font-size:9px;line-height:1.5;color:#50616b;border-top:1px solid #d1d4cc;padding-top:8px;margin-top:18px}}
+
+/* Market data, archive and article-image integration */
+.automation-links{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:22px}
+.automation-links a{background:#fffefa;border:1px solid #d9dcd5;padding:24px;display:flex;flex-direction:column;gap:8px;text-decoration:none}
+.automation-links a:hover{border-color:#285b4d}
+.automation-links strong{color:#142b36;font-size:19px;line-height:1.4}
+.automation-links small{color:#5c7078;line-height:1.8;font-size:13px}
+.article-cover{height:195px;overflow:hidden;margin:0 24px 5px;background:#eee}
+.article-cover img{width:100%;height:100%;object-fit:contain}
+.report-media{margin:35px 0 46px}.report-media h2{font-size:24px;border-bottom:1px solid #d9dcd5;padding-bottom:12px}
+.report-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.report-media-grid figure{margin:0;border:1px solid #d9dcd5;background:#fffefa;padding:8px}
+.report-media-grid img{width:100%;height:auto;display:block;max-height:750px;object-fit:contain}
+.report-media-grid figcaption{padding:10px 5px 5px;font-size:12px;color:#3c5662;line-height:1.65}
+.media-source-note{font-size:12px;color:#5b6f79;line-height:1.8;margin-top:12px}
+@media(max-width:740px){.automation-links{grid-template-columns:1fr;margin-top:10px}.automation-links a{padding:18px}.report-media-grid{grid-template-columns:1fr}}
+@media print{.report-media{break-inside:auto}.report-media-grid{display:block}.report-media-grid figure{break-inside:avoid;margin-bottom:16px}.report-media-grid img{max-height:165mm}}

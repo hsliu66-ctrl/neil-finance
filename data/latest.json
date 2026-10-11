@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "series": {},
+  "sources": {
+    "treasury": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml",
+    "ecb": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml"
+  },
+  "notes": [
+    "等待首次執行官方資料擷取；目前尚無市場數值，不以樣本數值冒充正式行情。"
+  ]
+}

@@ -26,3 +26,13 @@
 ## 發布規範
 請閱讀 [ChatGPT 發布 SOP](PUBLISHING.md) 與 [可複製發布指令](CHATGPT_PUBLISH_PROMPT.md)。
 使用者必須在當次對話明確授權公開發布；資料不足、涉及敏感資訊或授權不明時不可擅自上線。
+
+## V2：自動市場數據與研究歸檔
+- 官方市場數據儀表板：[\`market.html\`](https://hsliu66-ctrl.github.io/neil-finance/market.html)
+- 每週自動歸檔：[\`archive.html\`](https://hsliu66-ctrl.github.io/neil-finance/archive.html)
+- \`data/history.json\` 和 \`data/latest.json\`：持久化官方觀測序列與最新值。
+- \`data/weekly-index.json\` 和 \`data/weekly/*.json\`：每週的數據摘要與已發布文章列表。
+- \`scripts/update_market.py\` 與 \`.github/workflows/neil-market-pages.yml\`：定時更新、儲存與 Pages 發布。
+- 正式文章可含 \`images:[{src,alt,caption}]\`；圖卡應上傳至 \`assets/reports/\`，不可引用未經授權的資料與圖片。
+- **必要的一次性設定**：GitHub Settings → Pages → Source 改為 **GitHub Actions**，才能確保 Actions 排程推送的資料會自動發布。請參考 [完整 SOP](PUBLISHING.md)。
+- 資料非即時行情；Treasury 官方美債殖利率與 ECB 參考匯率有觀測日、發布時差與節假日缺值。

@@ -41,3 +41,17 @@
 - 網站公開工作台 `publish.html` **不能直接操作 GitHub**；只會在本機組裝與複製發布訊息，使用者貼到 ChatGPT 後發送，才會觸發對話中的 GitHub 工具。
 - GitHub Pages 不是資料庫或排程器；要定期自動抓行情、定時發布還需要額外資料管道與權限設定。
 - 任何可公開的頁面皆可能被其他人讀到，不要貼入機密或個人資料。
+
+## V2：研究文章圖卡
+- 報告可以新增 \`images\` 欄位，型態：\`[{src:"assets/reports/2026-10-11/macro-card-01.png",alt:"宏觀圖表文字描述",caption:"圖表來源與說明"}]\`。**這是示例路徑，檔案必須確實存在才可使用**。
+- 允許 PNG/JPG/WebP；網頁只接受 \`assets/reports/\` 內相對路徑、不接受遠端網址或上層路徑；正文會展示圖卡並提供放大連結，首頁卡片可顯示第一張封面。
+- 如使用者提供圖卡並授權公開，透過 GitHub create_blob 的 base64 形式建立圖檔，與更新 \`reports.js\` 盡量一次 commit；查檔案是否上傳成功。**不要**只寫路徑但不傳圖片。
+- 請先核對圖中文字中的數據、資料來源、圖像著作權。銀行資訊、個資與無授權研究內容不可公開。
+- 目前 editor.html 只編輯文字；圖卡整合經由 ChatGPT 已授權 GitHub 工具發布。
+
+## V2：每日數據與每週歸檔
+- market.html 讀取 \`data/latest.json\`、\`data/history.json\`，顯示觀測日期、歷史曲線；archive.html 讀取 \`data/weekly-index.json\` 與 \`data/weekly/YYYY-Www.json\`。
+- GitHub Action \`.github/workflows/neil-market-pages.yml\` 用 UTC 排程：週一至週五 00:15（台北 08:15）更新資料；每週一 01:30（台北 09:30）歸檔前一個完整 ISO 週。GitHub 排程可能延遲/略過，不能保證準點。
+- \`scripts/update_market.py\` 從美國財政部取得 12 期公債殖利率，從 ECB 取得外匯參考數據並計算 USD/JPY、USD/CNY 交叉參考。這不等於收盤 USD/CNY、USD/TWD 或 USD/CNH，更不包含個股、ETF 即時報價；歷史資料缺漏不以猜測補齊。
+- 2026/10 起首次成功執行才累積資料；官方可能延遲發布，遇到資料失敗會保留既有歷史，不虛構最新日期。
+- 如 Pages 仍採「Deploy from a branch」，請到 Settings > Pages > Source 選擇「GitHub Actions」，因為 \`GITHUB_TOKEN\` 的自動 commit 不會觸發 branch-based Pages 的再次建置。一次設定後所有更新可直接經 workflow deploy-pages 上線。

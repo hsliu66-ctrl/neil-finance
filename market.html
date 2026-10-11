@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f5ee"><title>市場數據儀表板｜Neil Financial Desk</title>
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+<script src="market.js" defer></script>
+<style>
+.data-shell{padding:60px 0 110px}
+.data-eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:#285b4d}
+.data-title{font-size:clamp(33px,5vw,56px);line-height:1.3;margin:12px 0}
+.data-lead{font-size:18px;line-height:1.8;color:#3c5662;max-width:900px}
+.data-panel{border:1px solid #d9dcd5;background:#fffefa;padding:25px}
+.data-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:30px 0}
+.data-kpi{text-align:left;background:#fffefa;border:1px solid #d9dcd5;padding:16px;cursor:pointer;min-width:0;color:#142b36}
+.data-kpi[aria-pressed="true"]{border:2px solid #285b4d;background:#edf3ec}
+.data-kpi strong{display:block;font-size:22px;margin:10px 0 3px;overflow-wrap:anywhere}
+.data-kpi small{display:block;font-size:11px;color:#627780;line-height:1.6}
+.data-kpi span{font-size:12px;font-weight:800;color:#285b4d}
+.data-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:24px}
+.data-controls select{border:1px solid #c4cdc5;background:#fff;padding:12px;font-size:14px;max-width:100%;color:#142b36}
+.data-range{display:flex;gap:8px}
+.data-range button{background:#f1f1ea;border:1px solid #d1d4ce;padding:9px 13px;cursor:pointer}
+.data-range button[aria-pressed="true"]{background:#142b36;color:white}
+.data-chart{display:block;width:100%;height:auto}
+.data-table{width:100%;border-collapse:collapse;font-size:15px;margin-top:25px}
+.data-table th,.data-table td{padding:11px 7px;text-align:left;border-bottom:1px solid #e5e6df}
+.data-foot{color:#5b6f79;line-height:1.8;margin-top:21px;font-size:13px}
+.data-foot a{text-decoration:underline;color:#285b4d}
+.data-status{font-size:15px;font-weight:700;color:#285b4d;margin:15px 0}
+@media(max-width:740px){.data-shell{padding:34px 0 60px}.data-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.data-panel{padding:16px}.data-kpi strong{font-size:20px}.data-title{font-size:36px}.data-lead{font-size:17px}}
+</style></head>
+<body>
+<div class="topline"><div class="container topbar">PERSONAL MARKET RESEARCH &amp; INTELLIGENCE</div></div>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html"><img class="brand-logo" src="neil-logo.webp" alt="Neil 整理 Logo"><small class="brand-label">NEIL FINANCIAL DESK · 財經研究室</small></a><nav class="desktop-nav"><a href="index.html#reports">研究報告</a><a href="archive.html">每週歸檔</a></nav><a class="header-action" href="index.html">↩ 回首頁</a></div></header>
+<main class="container data-shell">
+<div class="data-eyebrow">01 / AUTOMATED MARKET OBSERVATIONS</div><h1 class="data-title">市場數據與歷史走勢<span style="color:#b48a48">.</span></h1>
+<p class="data-lead">觀察美國財政部公債殖利率及歐洲央行外匯參考匯率，保留原始日期、來源與歷史值。這不是即時報價平台，**不得將 ECB 參考匯率視為台北外匯收盤價**。</p>
+<div class="data-status" id="data-status" role="status">正在讀取 GitHub 歷史資料…</div>
+<div class="data-grid" id="data-kpis" aria-label="最新官方數據"></div>
+<section class="data-panel">
+<div class="data-controls"><label>選擇觀察指標 <select id="series-select" aria-label="指標"></select></label><div class="data-range" id="range-controls"><button type="button" data-range="30" aria-pressed="true">30筆</button><button type="button" data-range="90" aria-pressed="false">90筆</button><button type="button" data-range="all" aria-pressed="false">全部</button></div></div>
+<h2 id="chart-heading">歷史觀測值</h2><div id="chart-container" aria-live="polite"></div>
+<table class="data-table"><thead><tr><th>觀測日期</th><th>數值</th><th>來源</th></tr></thead><tbody id="data-rows"><tr><td colspan="3">讀取中</td></tr></tbody></table>
+<div class="data-foot">美債資料：<a target="_blank" rel="noopener" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates">U.S. Treasury</a>，單位為殖利率百分比；外匯資料：<a target="_blank" rel="noopener" href="https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html">ECB</a>，EUR/USD 原始參考數值，USD/JPY 與 USD/CNY 為由 ECB 歐元參考價計算之交叉匯率，均非交易收盤價。<strong>不提供自動台北 USD/TWD、USD/CNH 或股票 ETF 行情。</strong>假日、延後發布及資料缺漏不補假數值。</div>
+</section>
+</main><footer class="footer"><div class="container"><div class="footer-disclaimer">📝 Neil 整理｜僅供資訊參考，非投資建議。🚫 僅供個人學習，請勿任意轉傳他人圖片或群組散布。</div></div></footer>
+</body></html>

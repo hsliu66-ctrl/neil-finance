@@ -5,10 +5,19 @@ var labels={market:'美股晨報',macro:'全球總經',rates:'美債殖利率',f
 var ordered=reports.slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'')});
 function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 function ymd(v){return esc((v||'').replace(/-/g,'.'))}
+function isTrustedImage(src){return /^assets\/reports\/[A-Za-z0-9_./-]+\.(?:png|jpe?g|webp)$/i.test(String(src||""))&&!String(src).includes("..")&&String(src).length<260}
+function articleImages(r){
+var images=(Array.isArray(r.images)?r.images:[]).filter(function(i){return i&&isTrustedImage(i.src)}).slice(0,12);
+if(!images.length)return "";
+return '<section class="report-media"><h2>研究圖卡與視覺摘要</h2><div class="report-media-grid">'
++images.map(function(i,idx){var alt=esc(i.alt||r.title+" 圖卡 "+(idx+1));return '<figure><a href="'+esc(i.src)+'" target="_blank" rel="noopener noreferrer" title="開啟原尺寸圖卡"><img loading="lazy" src="'+esc(i.src)+'" alt="'+alt+'"></a><figcaption>'+esc(i.caption||i.alt||"圖卡 "+(idx+1))+'</figcaption></figure>'}).join("")
++'</div><p class="media-source-note">點選圖卡可檢視原始大小。引用前請查核圖表上的數字、來源及授權。</p></section>'
+}
+
 function card(r,large){
 return '<a class="article-card'+(large?' article-highlight':'')+'" href="article.html?id='+encodeURIComponent(r.id)+'" aria-label="閱讀 '+esc(r.title)+'">'
 +'<div class="article-top"><span class="article-category">'+esc(labels[r.category]||'研究報告')+'</span><span class="article-status">'+(r.sample?'示範樣稿':'正式報告')+'</span></div>'
-+'<h3>'+esc(r.title)+'</h3><p class="article-summary">'+esc(r.summary)+'</p><div class="article-footer"><span>'+ymd(r.date)+' ・ '+(Number(r.readingMinutes)||4)+' MIN READ</span><b>↗</b></div></a>';
++(Array.isArray(r.images)&&r.images.length&&isTrustedImage(r.images[0].src)?'<div class="article-cover"><img loading="lazy" alt="'+esc(r.images[0].alt||r.title)+'" src="'+esc(r.images[0].src)+'"></div>':'')+'<h3>'+esc(r.title)+'</h3><p class="article-summary">'+esc(r.summary)+'</p><div class="article-footer"><span>'+ymd(r.date)+' ・ '+(Number(r.readingMinutes)||4)+' MIN READ</span><b>↗</b></div></a>';
 }
 function clock(){var d=document.getElementById('current-date');if(d){d.textContent=new Intl.DateTimeFormat('en-CA',{year:'numeric',month:'2-digit',day:'2-digit',timeZone:'Asia/Taipei'}).format(new Date()).replace(/-/g,'.')}}
 function home(){
@@ -53,7 +62,7 @@ var source='<div class="article-source"><strong>資料來源｜</strong>'+esc(r.
 var related=ordered.filter(function(x){return x.id!==id}).slice(0,2);
 root.innerHTML='<div class="container"><div class="article-shell"><div class="article-print-brand"><img src="neil-logo.webp" alt="Neil 整理 Logo"><small>NEIL FINANCIAL DESK · 研究報告</small></div><nav class="breadcrumb"><a href="index.html">首頁</a><span>›</span><a href="index.html#reports">研究報告</a><span>›</span>'+esc(labels[r.category])+'</nav>'
 +'<header class="article-header"><div class="article-meta-row"><span class="article-category">'+esc(labels[r.category])+'</span><span>／</span><span>'+ymd(r.date)+'</span><span>／</span><span>'+(r.readingMinutes||4)+' MIN READ</span>'+(r.sample?'<span class="article-status">示範樣稿</span>':'')+'</div><h1>'+esc(r.title)+'</h1><p class="article-subtitle">'+esc(r.subtitle)+'</p><p class="article-standfirst">'+esc(r.summary)+'</p><div class="article-utility"><div class="tag-list">'+(r.tags||[]).map(function(x){return '<span class="tag"># '+esc(x)+'</span>'}).join('')+'</div><div class="utility-buttons"><button type="button" id="copy-link">複製連結 ↗</button><button type="button" id="print-article">列印 / PDF ↓</button></div></div></header>'
-+'<div class="article-body">'+(r.focus?'<div class="article-keynote"><span>NEIL’S KEY TAKEAWAY</span><strong>'+esc(r.focus)+'</strong></div>':'')+(m?'<div class="metrics-row">'+m+'</div>':'')+chartMarkup(r.chart)+sections+source+'<p class="article-print-disclaimer">🚫 僅供個人學習，請勿任意轉傳他人圖片或群組散布。僅供資訊參考，非投資建議。</p>'+(r.sample?'<div class="article-warning"><strong>內容提示：</strong>這是網站示範文章，不是即時行情；對外引用前請核實數據、資料來源與授權。</div>':'')+'</div>'
++'<div class="article-body">'+(r.focus?'<div class="article-keynote"><span>NEIL’S KEY TAKEAWAY</span><strong>'+esc(r.focus)+'</strong></div>':'')+(m?'<div class="metrics-row">'+m+'</div>':'') +chartMarkup(r.chart)+articleImages(r)+sections+source+'<p class="article-print-disclaimer">🚫 僅供個人學習，請勿任意轉傳他人圖片或群組散布。僅供資訊參考，非投資建議。</p>'+(r.sample?'<div class="article-warning"><strong>內容提示：</strong>這是網站示範文章，不是即時行情；對外引用前請核實數據、資料來源與授權。</div>':'')+'</div>'
 +(related.length?'<aside class="article-related"><h2>延伸閱讀</h2><div class="articles-grid">'+related.map(function(x){return card(x,false)}).join('')+'</div></aside>':'')+'</div></div>';
 var cp=document.getElementById('copy-link');if(cp)cp.addEventListener('click',function(){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(function(){cp.textContent='已複製 ✓'}).catch(function(){window.prompt('複製連結',location.href)})}else{window.prompt('複製連結',location.href)}});
 var print=document.getElementById('print-article');if(print)print.addEventListener('click',function(){window.print()});
