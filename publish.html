@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f5ee"><meta name="robots" content="noindex">
+<title>ChatGPT 發布工作台｜Neil Financial Desk</title><link rel="icon" href="favicon.svg?v=2" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+<style>
+.publish-layout{padding:65px 0 110px;max-width:1060px}
+.publish-eyebrow{font-size:11px;letter-spacing:2.5px;font-weight:800;color:#285b4d}
+.publish-title{font-size:clamp(35px,6vw,60px);line-height:1.27;letter-spacing:-1.4px;margin:15px 0}
+.publish-intro{font-size:19px;line-height:1.85;color:#3c5662;max-width:770px}
+.publish-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(255px,.75fr);gap:22px;margin-top:36px}
+.publish-panel{background:#fffefa;border:1px solid #d9dcd5;padding:30px}
+.publish-panel h2{font-size:23px;margin-bottom:20px}
+.publish-field{display:block;margin-bottom:19px;font-weight:700;color:#243b47;font-size:14px}
+.publish-field span{display:block;margin-bottom:9px}
+.publish-field input,.publish-field select,.publish-field textarea{display:block;width:100%;padding:13px;border:1px solid #bdc8c4;background:#fff;min-width:0;font-size:16px;color:#142b36;border-radius:2px;font-family:inherit}
+.publish-field textarea{min-height:215px;line-height:1.7;resize:vertical}
+.publish-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.publish-main-btn{display:block;width:100%;background:#142b36;color:#fff;padding:16px 22px;border:0;font-weight:800;font-size:16px;min-height:54px}
+.publish-main-btn:hover{background:#285b4d}
+.publish-secondary{display:block;text-align:center;margin-top:12px;border:1px solid #285b4d;padding:13px;color:#285b4d;font-size:14px;font-weight:800}
+.publish-status{font-size:13px;line-height:1.6;color:#285b4d;min-height:25px;margin-top:12px}
+.publish-step{display:flex;gap:15px;align-items:flex-start;padding:16px 0;border-bottom:1px solid #e5e8e1;color:#3c5662;line-height:1.75;font-size:15px}
+.publish-step strong{display:block;color:#142b36}
+.publish-num{background:#142b36;color:#fff;width:29px;height:29px;line-height:29px;flex:none;text-align:center;border-radius:50%;font-size:12px;font-weight:800}
+.publish-privacy{padding:16px;background:#f1f0e8;font-size:13px;line-height:1.9;margin-top:24px;color:#50616b;border-left:3px solid #b48a48}
+.publish-preview{display:none;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;background:#f1f3ef;padding:17px;border:1px solid #d9dcd5;font-size:12px;margin-top:15px;max-height:260px;overflow:auto}
+@media(max-width:760px){.publish-layout{padding-top:35px}.publish-grid{grid-template-columns:1fr}.publish-panel{padding:20px}.publish-row{grid-template-columns:1fr;gap:0}.publish-intro{font-size:18px}}
+</style></head>
+<body><div class="topline"><div class="container topbar"><span>NEIL / PUBLISHING STUDIO</span><span class="topbar-date">CHATGPT × GITHUB</span></div></div>
+<header class="site-header"><div class="container header-inner">
+<a class="brand" href="index.html" aria-label="返回 Neil 財經研究室首頁"><img class="brand-logo" src="neil-logo.webp" alt="Neil 整理 Logo" width="360" height="113"><small class="brand-label">NEIL FINANCIAL DESK · 財經研究室</small></a>
+<nav class="desktop-nav"><a href="index.html#reports">研究報告</a><a href="editor.html">手動編輯器</a></nav>
+<a class="header-action" href="index.html">↩ 返回網站</a></div></header>
+<main class="container publish-layout">
+<div class="publish-eyebrow">CONTENT / AI-ASSISTED PUBLISHING</div>
+<h1 class="publish-title">ChatGPT 財經報告<br><em style="font-style:normal;color:#285b4d">發布工作台。</em></h1>
+<p class="publish-intro">把原始市場資料變成 Neil Financial Desk 研究文章。這個頁面可產生發布指令，再由你在已連接 GitHub 的 ChatGPT 對話中傳送，直接更新網站。</p>
+<div class="publish-grid">
+<section class="publish-panel" aria-label="產生發布訊息">
+<h2>建立發布指令</h2>
+<div class="publish-row"><label class="publish-field"><span>發布模式</span><select id="pub-mode"><option value="publish">正式發布到網站</option><option value="preview">僅產生預覽、不發布</option></select></label>
+<label class="publish-field"><span>研究分類</span><select id="pub-category"><option value="market">美股投資晨報</option><option value="macro">全球總經</option><option value="rates">美債殖利率</option><option value="fx">匯率週報</option><option value="etf">ETF 投資研究</option><option value="earnings">FactSet／財報洞察</option></select></label></div>
+<div class="publish-row"><label class="publish-field"><span>報告日期（依資料填寫）</span><input id="pub-date" type="date"></label>
+<label class="publish-field"><span>報告標題</span><input id="pub-title" type="text" placeholder="例如：美股投資晨報"></label></div>
+<label class="publish-field"><span>資料來源／連結</span><input id="pub-source" type="text" placeholder="官方連結、中央社、財報文件等"></label>
+<label class="publish-field"><span>原始報告內容</span><textarea id="pub-content" placeholder="貼上行情、新聞資料或報告正文。如要使用 PDF / 圖片，請直接到 ChatGPT 對話上傳附件。"></textarea></label>
+<button class="publish-main-btn" type="button" id="pub-copy">複製指令並開啟 ChatGPT ↗</button>
+<a class="publish-secondary" href="editor.html">改用手動編輯器 →</a>
+<div class="publish-status" id="pub-status" role="status" aria-live="polite"></div>
+<pre class="publish-preview" id="pub-preview"></pre>
+</section>
+<aside class="publish-panel"><h2>發布流程</h2>
+<div class="publish-step"><span class="publish-num">1</span><div><strong>提供資料</strong>填寫日期、分類和內容；也可稍後在 ChatGPT 上傳 PDF。</div></div>
+<div class="publish-step"><span class="publish-num">2</span><div><strong>傳送指令</strong>點複製並開啟 ChatGPT，再貼上送出；需要使用已連結的 GitHub 帳號。</div></div>
+<div class="publish-step"><span class="publish-num">3</span><div><strong>ChatGPT 查核與發布</strong>有足夠資料及授權才更新 reports.js，GitHub Pages 隨後自動部署。</div></div>
+<div class="publish-step"><span class="publish-num">4</span><div><strong>取得文章網址</strong>GitHub 部署成功後，ChatGPT 回報公開文章連結與版本。</div></div>
+<div class="publish-privacy"><strong>重要：</strong>本頁不會直接發佈或上傳內容到 GitHub。草稿留在目前裝置的網頁中；複製並發送到 ChatGPT 後，才由 ChatGPT 的授權工具處理。請勿輸入銀行客戶個資、未公開業務資料或無權公開的研究報告原文。</div></aside>
+</div>
+</main>
+<footer class="footer"><div class="container"><div class="footer-disclaimer">📝 Neil 整理｜僅供資訊參考，非投資建議。🚫 僅供個人學習，請勿任意轉傳他人圖片或群組散布。</div><div class="footer-lower"><span>© 2026 NEIL FINANCIAL DESK</span><span><a href="index.html">返回首頁</a></span></div></div></footer>
+<script>
+(function(){
+"use strict";
+function el(x){return document.getElementById(x)}
+function val(x){return el(x).value.trim()}
+var status=el("pub-status"),preview=el("pub-preview");
+function command(){
+var mode=val("pub-mode")==="preview"?"僅預覽，不要修改 GitHub":"正式發布到公開網站（請在查核與安全檢查後直接更新 GitHub）";
+return [
+"Neil Financial Desk｜ChatGPT 財經報告發布",
+"執行模式："+mode,
+"GitHub 儲存庫：hsliu66-ctrl/neil-finance",
+"網站：https://hsliu66-ctrl.github.io/neil-finance/",
+"報告類別："+el("pub-category").selectedOptions[0].textContent,
+"報告日期："+(val("pub-date")||"請依提供的資料判定，不可猜測"),
+"文章標題："+(val("pub-title")||"請從資料擬定適合的標題"),
+"資料來源："+(val("pub-source")||"請從原始資料找出可核對的來源；不可編造連結"),
+"",
+"請將以下內容整理為繁體中文財經研究文章，保留關鍵數字、Neil 觀點、來源與日期。只在核實資料、日期及公開權利後將文章新增到 main/reports.js，保留其他文章，不編造數字，不公開未授權資料或客戶資訊。若不完整，先告知問題且不要把草稿當作正式報告。核對 GitHub Pages 部署狀態，只有成功後才回覆已上線。若本次是僅預覽模式，絕對不要寫入 GitHub。",
+"",
+"原始資料：",
+val("pub-content")||"（我會在 ChatGPT 對話中另外提供／上傳原始資料，若未提供請先等我）"
+].join("\n");
+}
+el("pub-copy").addEventListener("click",async function(){
+var t=command();
+preview.textContent=t;preview.style.display="block";
+try{
+if(!navigator.clipboard||!navigator.clipboard.writeText)throw Error("clipboard unavailable");
+await navigator.clipboard.writeText(t);
+status.textContent="已複製發布指令。正在開啟 ChatGPT；請貼上後傳送。";
+window.location.assign("https://chatgpt.com/");
+}catch(e){
+status.textContent="Safari 未允許自動複製。請長按下方指令選取複製，再自行開啟 chatgpt.com。";
+}
+});
+})();
+</script></body></html>

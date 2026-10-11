@@ -1,22 +1,28 @@
 # Neil Financial Desk｜財經研究室
+官網：https://hsliu66-ctrl.github.io/neil-finance/
 
-專業財經報告手機閱讀網站，包含美股晨報、全球總經、美債殖利率、匯率週報、ETF 投資研究與財報洞察。
+以繁體中文呈現美股晨報、全球總經、公債殖利率、匯率週報、ETF 研究與財報洞察。
 
 ## 目前狀態
+- ✅ GitHub Pages 已成功發布：`main` 分支 `/(root)`。
+- ✅ 網站使用 Neil 原始 Logo、favicon、手機響應式頁面、文章搜尋與圖表。
+- ✅ **ChatGPT 財經報告發布工作台**：`publish.html`（產生與複製發佈指令，並開啟 ChatGPT）。
+- ✅ 使用者傳送明確「發布 Neil 財經報告」指令且已授權 GitHub 時，ChatGPT 可直接更新 `reports.js`；GitHub Pages 自動重新部署。
+- ℹ️ `editor.html` 是本機前端編輯器，輸出檔案後仍需上傳；`publish.html` 本身不會直接寫 GitHub。
+- ℹ️ 初始報告為示範內容，不是即時金融行情。不得公開銀行客戶資料或未授權報告原文。
 
-- ✅ 網站首頁及全部必要檔案已上傳至 main 分支（由 ChatGPT 協助上傳）。
-- ✅ 具備文章搜尋、分類篩選、示範報告、圖表與內容編輯器。
-- ⏳ 尚需在 GitHub Pages 設定中啟用公開網站。
+## 簡單操作
+在 ChatGPT 對話提供資料並傳送：
+```
+發布 Neil 財經報告
+主題：美股投資晨報
+報告日期：YYYY-MM-DD
+資料來源：（請提供）
+原始內容：（貼上報告或附件）
+核對數據後直接發布到 Neil Financial Desk，回覆文章網址與部署狀態。
+```
+或在 [ChatGPT 發布工作台](https://hsliu66-ctrl.github.io/neil-finance/publish.html) 組裝指令。
 
-## 第一次發布
-
-1. 開啟 [GitHub Pages 設定](https://github.com/hsliu66-ctrl/neil-finance/settings/pages)
-2. 在 **Build and deployment** 的 **Source** 選擇 **Deploy from a branch**。
-3. Branch 設定為 **main**，資料夾選擇 **/(root)**，再按 **Save**。
-4. 待 GitHub 完成部署後，開啟 <https://hsliu66-ctrl.github.io/neil-finance/>。
-
-## 日後更新
-
-在 `reports.js` 更新文章資料後 Commit，網站會重新部署。或打開 `editor.html`，填寫內容並下載 `reports.js`，再將它更新到 GitHub。
-
-目前七篇示範文章皆標註「示範樣稿」，不應視為即時行情。正式公開分享前，請逐項核對市場數據、圖片與資料引用授權。切勿公開銀行客戶個資或內部機密。
+## 發布規範
+請閱讀 [ChatGPT 發布 SOP](PUBLISHING.md) 與 [可複製發布指令](CHATGPT_PUBLISH_PROMPT.md)。
+使用者必須在當次對話明確授權公開發布；資料不足、涉及敏感資訊或授權不明時不可擅自上線。
