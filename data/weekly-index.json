@@ -1,3 +1,12 @@
 {
-  "weeks": []
+  "weeks": [
+    {
+      "week": "2026-W40",
+      "from": "2026-09-28",
+      "to": "2026-10-04",
+      "dataFile": "data/weekly/2026-W40.json",
+      "articleCount": 1,
+      "seriesCount": 15
+    }
+  ]
 }
