@@ -326,6 +326,11 @@
         "date": "2026-10-09",
         "source": "ECB",
         "value": 1.1206
+      },
+      {
+        "date": "2026-10-12",
+        "source": "ECB",
+        "value": 1.1181
       }
     ],
     "ECB_USDCNY": [
@@ -653,6 +658,11 @@
         "date": "2026-10-09",
         "source": "ECB",
         "value": 6.692129
+      },
+      {
+        "date": "2026-10-12",
+        "source": "ECB",
+        "value": 6.692782
       }
     ],
     "ECB_USDJPY": [
@@ -980,6 +990,11 @@
         "date": "2026-10-09",
         "source": "ECB",
         "value": 158.254507
+      },
+      {
+        "date": "2026-10-12",
+        "source": "ECB",
+        "value": 158.59941
       }
     ],
     "UST_10Y": [
