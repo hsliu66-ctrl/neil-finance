@@ -1,12 +1,20 @@
 {
   "weeks": [
     {
-      "week": "2026-W40",
-      "from": "2026-09-28",
-      "to": "2026-10-04",
-      "dataFile": "data/weekly/2026-W40.json",
+      "articleCount": 6,
+      "dataFile": "data/weekly/2026-W41.json",
+      "from": "2026-10-05",
+      "seriesCount": 15,
+      "to": "2026-10-11",
+      "week": "2026-W41"
+    },
+    {
       "articleCount": 1,
-      "seriesCount": 15
+      "dataFile": "data/weekly/2026-W40.json",
+      "from": "2026-09-28",
+      "seriesCount": 15,
+      "to": "2026-10-04",
+      "week": "2026-W40"
     }
   ]
 }
