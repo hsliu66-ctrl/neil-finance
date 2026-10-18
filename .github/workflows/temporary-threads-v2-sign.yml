@@ -1,0 +1,59 @@
+name: Temporary Threads Downloader V2 Shortcut Signing
+on:
+  push:
+    branches:
+      - temp/threads-v2-sign-20261018
+    paths:
+      - .github/workflows/temporary-threads-v2-sign.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sign-shortcut:
+    runs-on: macos-15
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore and validate unsigned V2
+        shell: bash
+        env:
+          SHORTCUT_BASE64: YnBsaXN0MDDcAQIDBAUGBwgJCgsMDS8wMTI3ODs8PT4/XxARV0ZXb3JrZmxvd0FjdGlvbnNfEBdXRldvcmtmbG93Q2xpZW50VmVyc2lvbl8QG1dGV29ya2Zsb3dIYXNPdXRwdXRGYWxsYmFja18QI1dGV29ya2Zsb3dIYXNTaG9ydGN1dElucHV0VmFyaWFibGVzXldGV29ya2Zsb3dJY29uXxAZV0ZXb3JrZmxvd0ltcG9ydFF1ZXN0aW9uc18QIVdGV29ya2Zsb3dJbnB1dENvbnRlbnRJdGVtQ2xhc3Nlc18QHldGV29ya2Zsb3dNaW5pbXVtQ2xpZW50VmVyc2lvbl8QJFdGV29ya2Zsb3dNaW5pbXVtQ2xpZW50VmVyc2lvblN0cmluZ15XRldvcmtmbG93TmFtZV8QIldGV29ya2Zsb3dPdXRwdXRDb250ZW50SXRlbUNsYXNzZXNfEA9XRldvcmtmbG93VHlwZXOiDiPSDxAREl8QGldGV29ya2Zsb3dBY3Rpb25JZGVudGlmaWVyXxAaV0ZXb3JrZmxvd0FjdGlvblBhcmFtZXRlcnNfEBtpcy53b3JrZmxvdy5hY3Rpb25zLmdldHRleHTSExQVFlRVVUlEXxAQV0ZUZXh0QWN0aW9uVGV4dF8QJEZDQjE5NzlBLTZFQjYtNDUwMi1CRDgxLTc2REMzNUMxNjgxRdIXGBkiVVZhbHVlXxATV0ZTZXJpYWxpemF0aW9uVHlwZdIaGxwhXxASYXR0YWNobWVudHNCeVJhbmdlVnN0cmluZ9EdHld7MzAsIDF90R8gVFR5cGVeRXh0ZW5zaW9uSW5wdXRvEB8AaAB0AHQAcABzADoALwAvAHQAaAByAGUAYQBkAHMAdgBpAGQAZQBvAC4AbwByAGcALwA/AHUAcgBsAD3//F8QEVdGVGV4dFRva2VuU3RyaW5n0g8QJCVfEBtpcy53b3JrZmxvdy5hY3Rpb25zLm9wZW51cmzSEyYnKFdXRklucHV0XxAkRTdERTNGMUYtQkE0NC00NzIzLUFEM0YtREE1QkMzNTQ1MTkw0hcYKS7TKisfLBUtWk91dHB1dE5hbWVaT3V0cHV0VVVJRFRUZXh0XEFjdGlvbk91dHB1dF8QFVdGVGV4dFRva2VuQXR0YWNobWVudFQxMjAwCAnSMzQ1Nl8QGVdGV29ya2Zsb3dJY29uR2x5cGhOdW1iZXJfEBhXRldvcmtmbG93SWNvblN0YXJ0Q29sb3IR6HcSOHHe/6CiOTpfEBBXRlVSTENvbnRlbnRJdGVtXxATV0ZTdHJpbmdDb250ZW50SXRlbREDhFM5MDBfEBVUaHJlYWRzIERvd25sb2FkZXIgVjKgoUBfEA9BY3Rpb25FeHRlbnNpb24ACAAhADUATwBtAJMAogC+AOIBAwEqATkBXgFwAXMBeAGVAbIB0AHVAdoB7QIUAhkCHwI1AjoCTwJWAlkCYQJkAmkCeAK5As0C0gLwAvUC/QMkAykDMAM7A0YDSwNYA3ADdQN2A3cDfAOYA7MDtgO7A7wDvwPSA+gD6wPvBAcECAQKAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAABBw=
+        run: |
+          mkdir -p shortcuts
+          python3 - <<'PY'
+          import base64
+          import os
+          import plistlib
+          from pathlib import Path
+          data = base64.b64decode(os.environ["SHORTCUT_BASE64"], validate=True)
+          shortcut = plistlib.loads(data)
+          assert shortcut["WFWorkflowName"] == "Threads Downloader V2"
+          assert len(shortcut["WFWorkflowActions"]) == 2
+          assert shortcut["WFWorkflowTypes"] == ["ActionExtension"]
+          Path("shortcuts/Threads_Downloader_V2_UNSIGNED_source.shortcut").write_bytes(data)
+          print("Unsigned shortcut validated:", len(data), "bytes")
+          PY
+      - name: Sign for anyone using Apple Shortcuts
+        shell: bash
+        run: |
+          shortcuts sign --mode anyone --input shortcuts/Threads_Downloader_V2_UNSIGNED_source.shortcut --output shortcuts/Threads_Downloader_V2_SIGNED.shortcut
+          test -s shortcuts/Threads_Downloader_V2_SIGNED.shortcut
+          file shortcuts/Threads_Downloader_V2_SIGNED.shortcut
+      - name: Upload signed .shortcut as run artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Threads-Downloader-V2-SIGNED
+          path: shortcuts/Threads_Downloader_V2_SIGNED.shortcut
+          if-no-files-found: error
+          retention-days: 7
+      - name: Publish signed file only on temporary branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- shortcuts/Threads_Downloader_V2_SIGNED.shortcut
+          if ! git diff --cached --quiet; then
+            git commit -m "build: add Apple-signed Threads Downloader V2"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
