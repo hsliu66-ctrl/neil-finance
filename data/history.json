@@ -366,6 +366,11 @@
         "date": "2026-10-21",
         "source": "ECB",
         "value": 1.1234
+      },
+      {
+        "date": "2026-10-22",
+        "source": "ECB",
+        "value": 1.1205
       }
     ],
     "ECB_USDCNY": [
@@ -733,6 +738,11 @@
         "date": "2026-10-21",
         "source": "ECB",
         "value": 6.676073
+      },
+      {
+        "date": "2026-10-22",
+        "source": "ECB",
+        "value": 6.674342
       }
     ],
     "ECB_USDJPY": [
@@ -1100,6 +1110,11 @@
         "date": "2026-10-21",
         "source": "ECB",
         "value": 157.877871
+      },
+      {
+        "date": "2026-10-22",
+        "source": "ECB",
+        "value": 157.045962
       }
     ],
     "UST_10Y": [
@@ -3357,6 +3372,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 5.13
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.96
       }
     ],
     "UST_1M": [
@@ -5614,6 +5634,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 4.09
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.11
       }
     ],
     "UST_1Y": [
@@ -7871,6 +7896,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 4.52
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.41
       }
     ],
     "UST_20Y": [
@@ -10128,6 +10158,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 5.47
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 5.32
       }
     ],
     "UST_2M": [
@@ -12383,6 +12418,11 @@
       },
       {
         "date": "2026-10-21",
+        "source": "U.S. Treasury",
+        "value": 4.16
+      },
+      {
+        "date": "2026-10-22",
         "source": "U.S. Treasury",
         "value": 4.16
       }
@@ -14642,6 +14682,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 4.81
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.65
       }
     ],
     "UST_30Y": [
@@ -16899,6 +16944,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 5.42
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 5.29
       }
     ],
     "UST_3M": [
@@ -19156,6 +19206,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 4.25
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.22
       }
     ],
     "UST_3Y": [
@@ -21413,6 +21468,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 4.89
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.72
       }
     ],
     "UST_5Y": [
@@ -23670,6 +23730,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 4.95
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.78
       }
     ],
     "UST_6M": [
@@ -25927,6 +25992,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 4.35
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.29
       }
     ],
     "UST_7Y": [
@@ -28184,6 +28254,11 @@
         "date": "2026-10-21",
         "source": "U.S. Treasury",
         "value": 5.03
+      },
+      {
+        "date": "2026-10-22",
+        "source": "U.S. Treasury",
+        "value": 4.86
       }
     ]
   }
