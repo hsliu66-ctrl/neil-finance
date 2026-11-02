@@ -1,0 +1,204 @@
+{
+  "articles": [],
+  "from": "2026-10-26",
+  "market": {
+    "ECB_EURUSD": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "ECB",
+        "value": 1.1188
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "ECB",
+        "value": 1.1172
+      },
+      "observations": 5
+    },
+    "ECB_USDCNY": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "ECB",
+        "value": 6.668127
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "ECB",
+        "value": 6.652882
+      },
+      "observations": 5
+    },
+    "ECB_USDJPY": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "ECB",
+        "value": 157.445477
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "ECB",
+        "value": 157.250269
+      },
+      "observations": 5
+    },
+    "UST_10Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 5.0
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.94
+      },
+      "observations": 5
+    },
+    "UST_1M": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.11
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.06
+      },
+      "observations": 5
+    },
+    "UST_1Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.47
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.36
+      },
+      "observations": 5
+    },
+    "UST_20Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 5.35
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 5.34
+      },
+      "observations": 5
+    },
+    "UST_2M": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.18
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.16
+      },
+      "observations": 5
+    },
+    "UST_2Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.68
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.56
+      },
+      "observations": 5
+    },
+    "UST_30Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 5.31
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 5.31
+      },
+      "observations": 5
+    },
+    "UST_3M": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.22
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.16
+      },
+      "observations": 5
+    },
+    "UST_3Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.79
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.65
+      },
+      "observations": 5
+    },
+    "UST_5Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.84
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.71
+      },
+      "observations": 5
+    },
+    "UST_6M": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.35
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.25
+      },
+      "observations": 5
+    },
+    "UST_7Y": {
+      "first": {
+        "date": "2026-10-26",
+        "source": "U.S. Treasury",
+        "value": 4.91
+      },
+      "last": {
+        "date": "2026-10-30",
+        "source": "U.S. Treasury",
+        "value": 4.8
+      },
+      "observations": 5
+    }
+  },
+  "schema": 1,
+  "to": "2026-11-01",
+  "week": "2026-W44"
+}
