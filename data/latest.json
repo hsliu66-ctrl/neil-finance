@@ -7,79 +7,79 @@
   "schema": 1,
   "series": {
     "ECB_EURUSD": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "ECB",
-      "value": 1.099
+      "value": 1.0939
     },
     "ECB_USDCNY": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "ECB",
-      "value": 6.677707
+      "value": 6.664686
     },
     "ECB_USDJPY": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "ECB",
-      "value": 158.644222
+      "value": 159.073041
     },
     "UST_10Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
       "value": 4.92
     },
     "UST_1M": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.19
+      "value": 4.2
     },
     "UST_1Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.51
+      "value": 4.57
     },
     "UST_20Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 5.34
+      "value": 5.33
     },
     "UST_2M": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.28
+      "value": 4.3
     },
     "UST_2Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
       "value": 4.63
     },
     "UST_30Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 5.31
+      "value": 5.29
     },
     "UST_3M": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.32
+      "value": 4.37
     },
     "UST_3Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.65
+      "value": 4.69
     },
     "UST_5Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.71
+      "value": 4.74
     },
     "UST_6M": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.38
+      "value": 4.45
     },
     "UST_7Y": {
-      "date": "2026-11-20",
+      "date": "2026-11-23",
       "source": "U.S. Treasury",
-      "value": 4.8
+      "value": 4.81
     }
   },
   "sources": {
