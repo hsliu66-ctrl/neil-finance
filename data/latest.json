@@ -7,19 +7,19 @@
   "schema": 1,
   "series": {
     "ECB_EURUSD": {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "source": "ECB",
-      "value": 1.0935
+      "value": 1.0975
     },
     "ECB_USDCNY": {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "source": "ECB",
-      "value": 6.67572
+      "value": 6.660228
     },
     "ECB_USDJPY": {
-      "date": "2026-11-25",
+      "date": "2026-11-26",
       "source": "ECB",
-      "value": 159.323274
+      "value": 159.261959
     },
     "UST_10Y": {
       "date": "2026-11-25",
